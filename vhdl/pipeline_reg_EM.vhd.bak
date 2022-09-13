@@ -1,0 +1,46 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+
+entity pipeline_reg_EM is
+    port(
+        clk         : in  std_logic;
+        reset_n     : in  std_logic;
+        mux_1_in    : in  std_logic_vector(31 downto 0);
+        sel_mem_in  : in  std_logic;
+        rf_wren_in  : in  std_logic;
+        mux_2_in    : in  std_logic_vector(4 downto 0);
+        mux_1_out   : out std_logic_vector(31 downto 0);
+        sel_mem_out : out std_logic;
+        rf_wren_out : out std_logic;
+        mux_2_out   : out std_logic_vector(4 downto 0)
+    );
+end pipeline_reg_EM;
+
+architecture synth of pipeline_reg_EM is
+    signal s_mux_1   : std_logic_vector(31 downto 0);
+    signal s_sel_mem : std_logic;
+    signal s_rf_wren : std_logic;
+    signal s_mux_2   : std_logic_vector(4 downto 0);
+begin
+    mux_1_out <= s_mux_1;
+    sel_mem_out <= s_sel_mem;
+    rf_wren_out <= s_rf_wren;
+    mux_2_out <= s_mux_2;
+
+   pipe : process(reset_n, clk)
+   begin
+    if (reset_n = '0') then
+        s_mux_1 <= (others => '0');
+        s_sel_mem <= '0';
+        s_rf_wren <= '0';
+        s_mux_2 <= (others => '0');
+    elsif (rising_edge(clk)) then
+        s_mux_1 <= mux_1_in;
+        s_sel_mem <= sel_mem_in;
+        s_rf_wren <= rf_wren_in;
+        s_mux_2 <= mux_2_in;
+    end if;
+   end process;
+end synth;
