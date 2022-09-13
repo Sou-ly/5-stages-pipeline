@@ -1,5 +1,5 @@
 Flow report for GECKO
-Fri Jun 03 09:52:50 2022
+Tue Sep 13 08:28:38 2022
 Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
 
 
@@ -41,22 +41,22 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Fri Jun 03 09:52:47 2022       ;
+; Flow Status                        ; Flow Failed - Tue Sep 13 08:28:38 2022      ;
 ; Quartus Prime Version              ; 16.0.0 Build 211 04/27/2016 SJ Lite Edition ;
 ; Revision Name                      ; GECKO                                       ;
 ; Top-level Entity Name              ; GECKO                                       ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE30F23C8                                ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 2,623 / 28,848 ( 9 % )                      ;
-;     Total combinational functions  ; 2,571 / 28,848 ( 9 % )                      ;
-;     Dedicated logic registers      ; 1,303 / 28,848 ( 5 % )                      ;
-; Total registers                    ; 1303                                        ;
-; Total pins                         ; 102 / 329 ( 31 % )                          ;
-; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 98,304 / 608,256 ( 16 % )                   ;
-; Embedded Multiplier 9-bit elements ; 0 / 132 ( 0 % )                             ;
-; Total PLLs                         ; 0 / 4 ( 0 % )                               ;
+; Total logic elements               ; N/A until Partition Merge                   ;
+;     Total combinational functions  ; N/A until Partition Merge                   ;
+;     Dedicated logic registers      ; N/A until Partition Merge                   ;
+; Total registers                    ; N/A until Partition Merge                   ;
+; Total pins                         ; N/A until Partition Merge                   ;
+; Total virtual pins                 ; N/A until Partition Merge                   ;
+; Total memory bits                  ; N/A until Partition Merge                   ;
+; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                   ;
+; Total PLLs                         ; N/A until Partition Merge                   ;
 +------------------------------------+---------------------------------------------+
 
 
@@ -65,7 +65,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 06/03/2022 09:52:22 ;
+; Start date & time ; 09/13/2022 08:28:30 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; GECKO               ;
 +-------------------+---------------------+
@@ -76,7 +76,7 @@ agreement for further details.
 +-------------------------------------+---------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                 ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+---------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 145862332986346.165424274211380       ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 145862332986346.166305050934160       ; --            ; --          ; --         ;
 ; ENABLE_SIGNALTAP                    ; Off                                   ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                    ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                     ; --            ; --          ; --         ;
@@ -98,38 +98,29 @@ agreement for further details.
 +-------------------------------------+---------------------------------------+---------------+-------------+------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------+
-; Flow Elapsed Time                                                                                                             ;
-+---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
-+---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:09     ; 1.0                     ; 5040 MB             ; 00:00:19                           ;
-; Fitter                    ; 00:00:12     ; 1.0                     ; 5381 MB             ; 00:00:12                           ;
-; Assembler                 ; 00:00:01     ; 1.0                     ; 4888 MB             ; 00:00:01                           ;
-; TimeQuest Timing Analyzer ; 00:00:02     ; 1.0                     ; 4994 MB             ; 00:00:03                           ;
-; Total                     ; 00:00:24     ; --                      ; --                  ; 00:00:35                           ;
-+---------------------------+--------------+-------------------------+---------------------+------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                        ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis ; 00:00:09     ; 1.0                     ; 5022 MB             ; 00:00:18                           ;
+; Total                ; 00:00:09     ; --                      ; --                  ; 00:00:18                           ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
-+----------------------------------------------------------------------------------------+
-; Flow OS Summary                                                                        ;
-+---------------------------+------------------+-----------+------------+----------------+
-; Module Name               ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
-+---------------------------+------------------+-----------+------------+----------------+
-; Analysis & Synthesis      ; LAPTOP-2K0RUIM9  ; Windows 8 ; 6.2        ; x86_64         ;
-; Fitter                    ; LAPTOP-2K0RUIM9  ; Windows 8 ; 6.2        ; x86_64         ;
-; Assembler                 ; LAPTOP-2K0RUIM9  ; Windows 8 ; 6.2        ; x86_64         ;
-; TimeQuest Timing Analyzer ; LAPTOP-2K0RUIM9  ; Windows 8 ; 6.2        ; x86_64         ;
-+---------------------------+------------------+-----------+------------+----------------+
++-----------------------------------------------------------------------------------+
+; Flow OS Summary                                                                   ;
++----------------------+------------------+-----------+------------+----------------+
+; Module Name          ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
++----------------------+------------------+-----------+------------+----------------+
+; Analysis & Synthesis ; LAPTOP-2K0RUIM9  ; Windows 8 ; 6.2        ; x86_64         ;
++----------------------+------------------+-----------+------------+----------------+
 
 
 ------------
 ; Flow Log ;
 ------------
 quartus_map --read_settings_files=on --write_settings_files=off GECKO -c GECKO
-quartus_fit --read_settings_files=off --write_settings_files=off GECKO -c GECKO
-quartus_asm --read_settings_files=off --write_settings_files=off GECKO -c GECKO
-quartus_sta GECKO -c GECKO
 
 
 
